@@ -1,12 +1,15 @@
 import React from 'react'
-import LandingNavbar from '../../components/navbars/LandingNavbar'
-import ImageCarousel from '../../components/ImageCarousel'
-import Footer from '../../components/Footer'
+import ImageCarousel from '../components/ImageCarousel'
+import Footer from '../components/Footer'
+import Navbar from '../components/Navbar'
+
+
+
 
 function LandingPage() {
     return (
         <div>
-            <LandingNavbar />
+            <Navbar />
 
             {/* Hero Section */}
             <div className='h-screen flex flex-col justify-center items-center text-center bg-cover bg-center'
