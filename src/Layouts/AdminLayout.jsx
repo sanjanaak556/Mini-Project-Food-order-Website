@@ -1,15 +1,24 @@
 import React from 'react'
-import LogOutButton from '../components/LogOutButton'
+import { Outlet } from 'react-router-dom'
+import Footer from '../components/Footer'
+import Sidebar from '../components/Sidebar'
+import Topbar from '../components/Topbar'
+
 
 function AdminLayout() {
     return (
-        <div className='p-6'>
-            <div className='flex justify-between items-center mb-6'>
-                <h1 className='text-3xl font-bold text-green-600'>Admin Dashboard</h1>
-                <LogOutButton />
+        <div className='flex flex-col min-h-screen'>
+        <div className='flex flex-1'>
+            <Sidebar />
+            <div className='flex-1 flex flex-col'>
+                <Topbar />
+                <div className='p-6 flex-1'>
+                    <Outlet />
+                </div>
             </div>
-            <p>Welcome Admin! Manage users and orders here.</p>
         </div>
+        <Footer />
+    </div>
     )
 }
 

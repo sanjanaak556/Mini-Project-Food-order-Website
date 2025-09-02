@@ -1,14 +1,15 @@
 import React from 'react'
-import LogOutButton from '../components/LogOutButton'
+import Navbar from '../components/Navbar'
+import { Outlet } from 'react-router-dom'
+import Footer from '../components/Footer'
+
 
 function CustomerLayout() {
     return (
         <div className='p-6'>
-            <div className='flex justify-between items-center mb-6'>
-                <h1 className='text-3xl font-bold text-green-600'>Customer Dashboard</h1>
-                <LogOutButton />
-            </div>
-            <p>Welcome Customer! Browse and order food here.</p>
+            <Navbar />
+            <Outlet />
+            <Footer />
         </div>
     )
 }
