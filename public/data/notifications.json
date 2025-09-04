@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "text": "Order #1 (Kerala Parotta with Beef Curry) has requested cancellation.",
+        "read": false
+    },
+    {
+        "id": 2,
+        "text": "The cancellation of Order #1 (Kerala Parotta with Beef Curry) has been approved.",
+        "read": false
+    },
+    {
+        "id": 3,
+        "text": "Your rejected order #2 (Appam with Stew) has been assigned to another seller.",
+        "read": false
+    },
+    {
+        "id": 4,
+        "text": "Rejection for Order #3 (Fish Curry with Rice) has been approved by admin.",
+        "read": false
+    },
+    {
+        "id": 5,
+        "text": "Order #4 (Puttu and Kadala Curry) is awaiting delivery confirmation.",
+        "read": false
+    },
+    {
+        "id": 6,
+        "text": "Order #5 (Chicken Biryani) has been successfully delivered.",
+        "read": true
+    },
+    {
+        "id": 7,
+        "text": "Payment for Order #6 (Vegetable Thali) has been received.",
+        "read": true
+    },
+    {
+        "id": 8,
+        "text": "Customer rated Order #7 (Egg Roast with Idiyappam) with 5 stars.",
+        "read": false
+    },
+    {
+        "id": 9,
+        "text": "Reminder: Order #8 (Paneer Butter Masala with Naan) must be delivered in 15 minutes.",
+        "read": false
+    },
+    {
+        "id": 10,
+        "text": "Admin sent you a message: Maintain hygiene and follow delivery protocols.",
+        "read": true
+    },
+    {
+        "id": 11,
+        "text": "New order placed for Chicken Biryani.",
+        "read": false
+    },
+    {
+        "id": 12,
+        "text": "Order ID 102 for Veg Burger requested for cancellation.",
+        "read": false
+    },
+    {
+        "id": 13,
+        "text": "The cancellation of Order ID 102 (Veg Burger) has been approved.",
+        "read": true
+    },
+    {
+        "id": 14,
+        "text": "Your rejected order ID 103 (Paneer Tikka) has been assigned to another seller.",
+        "read": false
+    },
+    {
+        "id": 15,
+        "text": "Payment received for Order ID 104 (Fish Curry).",
+        "read": false
+    },
+    {
+        "id": 16,
+        "text": "Order ID 105 (Masala Dosa) is out for delivery.",
+        "read": false
+    },
+    {
+        "id": 17,
+        "text": "Order ID 105 (Masala Dosa) delivered successfully.",
+        "read": true
+    },
+    {
+        "id": 18,
+        "text": "Customer re-ordered Chicken Biryani.",
+        "read": false
+    },
+    {
+        "id": 19,
+        "text": "Delivery of Order ID 107 (Shawarma Roll) is delayed by 15 minutes.",
+        "read": false
+    },
+    {
+        "id": 20,
+        "text": "System maintenance scheduled for tonight at 2:00 AM.",
+        "read": false
+    }
+]

@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, useLocation } from "react-router-dom"
 import LogOutButton from "./LogOutButton"
+import ThemeToggleIcon from "./ThemeToggleIcon"
 
 function Navbar() {
   const location = useLocation()
@@ -27,6 +28,7 @@ function Navbar() {
         <Link to="/login" className="text-white font-semibold hover:text-red-600 px-3">
           Login
         </Link>
+        <ThemeToggleIcon />
       </>
     )
   } else if (path.startsWith("/customer")) {

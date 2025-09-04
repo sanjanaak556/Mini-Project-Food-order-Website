@@ -26,11 +26,11 @@ function LandingPage() {
 
                 {/* Hero Content */}
                 <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 z-10">
-                    <h1 className="text-5xl font-bold text-white drop-shadow-lg">
+                    <h1 className="text-5xl font-bold text-yellow-400 drop-shadow-lg">
                         Order Your Favorite Food Anytime!
                     </h1>
-                    <p className="text-xl text-white mt-4 max-w-2xl">
-                        Fast delivery, great taste, and best offers in town.
+                    <p className="text-xl font-semibold text-white mt-4 max-w-2xl">
+                        Fast delivery, great taste, and best offers in town...
                     </p>
                 </div>
             </div>

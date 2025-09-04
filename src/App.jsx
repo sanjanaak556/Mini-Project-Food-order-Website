@@ -10,6 +10,10 @@ import CustomerHome from './pages/customer/CustomerHome'
 import ProductDetails from './pages/customer/ProductDetails'
 import Sidebar from './components/Sidebar'
 import Cart from './pages/customer/Cart'
+import Order from './pages/customer/Order'
+import SellerOrders from './pages/seller/SellerOrders'
+import Notifications from './pages/seller/Notifications'
+import SellerDashboard from './pages/seller/SellerDashboard'
 
 function App() {
   const router = createBrowserRouter([
@@ -18,7 +22,9 @@ function App() {
     {
       path: '/seller', element: <SellerLayout />,
       children: [
-        { path: '/seller', element: <Sidebar /> }
+        { path: '/seller', element: <SellerDashboard /> },
+        { path: '/seller/orders', element: <SellerOrders /> },
+        { path: '/seller/notifications', element: <Notifications /> },
       ]
     },
     {
@@ -27,6 +33,7 @@ function App() {
         { path: '/customer', element: <CustomerHome /> },
         { path: 'product/:id', element: <ProductDetails /> },
         { path: '/customer/cart', element: <Cart /> },
+        { path: '/customer/orders', element: <Order /> },
       ]
     },
     {
