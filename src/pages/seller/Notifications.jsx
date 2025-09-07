@@ -9,7 +9,6 @@ function Notifications() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // ✅ Fetch orders fresh every time (no localStorage persistence)
   useEffect(() => {
     fetch("https://sanjanaak556.github.io/API-Seller-Orders/Sellers.json")
       .then((res) => res.json())
@@ -86,7 +85,6 @@ function Notifications() {
                     </p>
                     <p className="text-sm">Qty: {order.quantity}</p>
                     <p className="text-sm">₹{order.price}</p>
-                    <p className="text-sm">Restaurant: {order.restaurant}</p>
                     <p className="text-sm">Address: {order.address}</p>
                     <p className="text-sm">Delivery: {order.deliveryTime}</p>
                     <p className="text-sm">Payment: {order.paymentMode}</p>

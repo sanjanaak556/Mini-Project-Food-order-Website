@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "customerName": "Arjun Menon",
+    "address": "Kochi, Kerala",
+    "rating": 5,
+    "restaurant": "Tripthi Restaurant",
+    "review": "Amazing food and quick service. Highly recommended!"
+  },
+  {
+    "id": 2,
+    "customerName": "Priya Nair",
+    "address": "Thrissur, Kerala",
+    "rating": 4,
+    "restaurant": "Thattukkada Delights",
+    "review": "Loved the flavors, but delivery was slightly delayed."
+  },
+  {
+    "id": 3,
+    "customerName": "Rahul Krishnan",
+    "address": "Calicut, Kerala",
+    "rating": 5,
+    "restaurant": "Malabar Mess",
+    "review": "One of the best restaurants I’ve ordered from. Fresh and tasty."
+  },
+  {
+    "id": 4,
+    "customerName": "Sneha Ramesh",
+    "address": "Kollam, Kerala",
+    "rating": 4,
+    "restaurant": "Majlis Restaurant",
+    "review": "Great taste but portion size could be a bit bigger."
+  },
+  {
+    "id": 5,
+    "customerName": "Vikram Raj",
+    "address": "Alappuzha, Kerala",
+    "rating": 5,
+    "restaurant": "Karimeen Hut",
+    "review": "Delicious meals and excellent packaging."
+  },
+  {
+    "id": 6,
+    "customerName": "Neha Suresh",
+    "address": "Kottayam, Kerala",
+    "rating": 3,
+    "restaurant": "Grands Restaurant",
+    "review": "Food was okay, but spice level was too high for me."
+  },
+  {
+    "id": 7,
+    "customerName": "Ankit Das",
+    "address": "Kannur, Kerala",
+    "rating": 5,
+    "restaurant": "Bismilla Hotel",
+    "review": "Perfectly cooked dishes, worth every rupee!"
+  },
+  {
+    "id": 8,
+    "customerName": "Divya Pillai",
+    "address": "Palakkad, Kerala",
+    "rating": 4,
+    "restaurant": "Raravis Restaurant",
+    "review": "Really good food. Could improve the delivery speed."
+  },
+  {
+    "id": 9,
+    "customerName": "Rohit Kumar",
+    "address": "Pathanamthitta, Kerala",
+    "rating": 5,
+    "restaurant": "Barbiq Restaurant",
+    "review": "The dosa was super crispy and chutneys were amazing."
+  },
+  {
+    "id": 10,
+    "customerName": "Kavya Mohan",
+    "address": "Malappuram, Kerala",
+    "rating": 4,
+    "restaurant": "Malabar Restaurant",
+    "review": "Overall good experience. The biryani was outstanding!"
+  },
+  {
+    "id": 11,
+    "customerName": "Suresh Pillai",
+    "address": "Thiruvananthapuram, Kerala",
+    "rating": 5,
+    "restaurant": "Nuzrat Restaurant",
+    "review": "Authentic flavors. Reminded me of home-cooked food."
+  },
+  {
+    "id": 12,
+    "customerName": "Aditi Nambiar",
+    "address": "Wayanad, Kerala",
+    "rating": 3,
+    "restaurant": "Omas Restaurant",
+    "review": "Food was tasty but arrived a bit cold."
+  },
+  {
+    "id": 13,
+    "customerName": "Harish Kumar",
+    "address": "Idukki, Kerala",
+    "rating": 5,
+    "restaurant": "Calicut Kitchen",
+    "review": "Excellent! Especially the paneer butter masala."
+  },
+  {
+    "id": 14,
+    "customerName": "Meera Varma",
+    "address": "Kasargod, Kerala",
+    "rating": 4,
+    "restaurant": "Grill N Chill",
+    "review": "Great value for money. Will order again."
+  },
+  {
+    "id": 15,
+    "customerName": "Abhishek Menon",
+    "address": "Cherthala, Kerala",
+    "rating": 5,
+    "restaurant": "Ustad Hotel",
+    "review": "Superb taste! The best place for South Indian dishes."
+  },
+  {
+    "id": 16,
+    "customerName": "Shreya Nair",
+    "address": "Varkala, Kerala",
+    "rating": 4,
+    "restaurant": "Rahmath Hotel",
+    "review": "Food quality is top notch, but took 45 mins to deliver."
+  },
+  {
+    "id": 17,
+    "customerName": "Karan Joseph",
+    "address": "Chalakudy, Kerala",
+    "rating": 5,
+    "restaurant": "Kumarakom Restaurant",
+    "review": "Loved it! Will recommend to all my friends."
+  },
+  {
+    "id": 18,
+    "customerName": "Anjali Raj",
+    "address": "Neyyattinkara, Kerala",
+    "rating": 3,
+    "restaurant": "Hotel Aiswarya",
+    "review": "The taste was good, but naan was a bit hard."
+  },
+  {
+    "id": 19,
+    "customerName": "Manoj Kumar",
+    "address": "Muvattupuzha, Kerala",
+    "rating": 5,
+    "restaurant": "Annapoorna Tiffin Centre",
+    "review": "Fantastic meals and courteous delivery staff."
+  },
+  {
+    "id": 20,
+    "customerName": "Pooja Krishna",
+    "address": "Perinthalmanna, Kerala",
+    "rating": 4,
+    "restaurant": "Udupi Veg House",
+    "review": "Overall great experience. Packaging can be better."
+  }
+]

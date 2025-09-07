@@ -24,11 +24,12 @@ function Sidebar() {
 
   const adminLinks = [
     { path: "/admin", label: "Dashboard" },
-    { path: "/admin/users", label: "Users" },
+    { path: "/admin/customers", label: "Customers" },
     { path: "/admin/sellers", label: "Sellers" },
     { path: "/admin/menu", label: "Menu" },
     { path: "/admin/orders", label: "Orders" },
     { path: "/admin/reports", label: "Reports" },
+    { path: "/admin/notifications", label: "Notifications" },
     { path: "/admin/reviews", label: "Reviews" },
   ];
 
@@ -41,7 +42,7 @@ function Sidebar() {
       {/* Mobile toggle button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden fixed top-4 left-4 z-50 bg-red-500 text-white p-2 rounded-lg shadow-lg"
+        className="md:hidden fixed top-4 left-42 z-50 bg-red-500 text-white p-2 rounded-lg shadow-lg"
       >
         {isOpen ? <FaTimes /> : <FaBars />}
       </button>

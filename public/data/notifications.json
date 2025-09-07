@@ -2,101 +2,162 @@
     {
         "id": 1,
         "text": "Order #1 (Kerala Parotta with Beef Curry) has requested cancellation.",
-        "read": false
+        "read": false,
+        "message": "Customer raised a complaint about late delivery for Order #98.",
+        "messageType": "customer",
+        "time": "2025-09-03 09:20"
     },
     {
         "id": 2,
         "text": "The cancellation of Order #1 (Kerala Parotta with Beef Curry) has been approved.",
-        "read": false
+        "read": false,
+        "message": "Seller requested extra packaging materials for weekend bulk orders.",
+        "messageType": "seller",
+        "time": "2025-09-03 09:55"
     },
     {
         "id": 3,
         "text": "Your rejected order #2 (Appam with Stew) has been assigned to another seller.",
-        "read": false
+        "read": false,
+        "message": "Customer reported wrong item delivered for Order #101.",
+        "messageType": "customer",
+        "time": "2025-09-03 10:30"
     },
     {
         "id": 4,
         "text": "Rejection for Order #3 (Fish Curry with Rice) has been approved by admin.",
-        "read": false
+        "read": false,
+        "message": "Seller requested approval for a new seasonal menu addition.",
+        "messageType": "seller",
+        "time": "2025-09-03 11:10"
     },
     {
         "id": 5,
         "text": "Order #4 (Puttu and Kadala Curry) is awaiting delivery confirmation.",
-        "read": false
+        "read": false,
+        "message": "Customer asked for a refund for Order #99 due to missing items.",
+        "messageType": "customer",
+        "time": "2025-09-03 11:50"
     },
     {
         "id": 6,
         "text": "Order #5 (Chicken Biryani) has been successfully delivered.",
-        "read": true
+        "read": false,
+        "message": "Seller requested payment settlement for last week’s completed orders.",
+        "messageType": "financial",
+        "time": "2025-09-03 12:15"
     },
     {
         "id": 7,
         "text": "Payment for Order #6 (Vegetable Thali) has been received.",
-        "read": true
+        "read": false,
+        "message": "Customer submitted a suggestion to improve the delivery app experience.",
+        "messageType": "customer",
+        "time": "2025-09-03 12:40"
     },
     {
         "id": 8,
         "text": "Customer rated Order #7 (Egg Roast with Idiyappam) with 5 stars.",
-        "read": false
+        "read": false,
+        "message": "Seller reported an issue with delayed rider pickups in Kochi area.",
+        "messageType": "seller",
+        "time": "2025-09-03 13:05"
     },
     {
         "id": 9,
         "text": "Reminder: Order #8 (Paneer Butter Masala with Naan) must be delivered in 15 minutes.",
-        "read": false
+        "read": false,
+        "message": "System alert: High order traffic expected between 7-9 PM today.",
+        "messageType": "system",
+        "time": "2025-09-03 13:30"
     },
     {
         "id": 10,
         "text": "Admin sent you a message: Maintain hygiene and follow delivery protocols.",
-        "read": true
+        "read": false,
+        "message": "Customer submitted proof of poor hygiene for Seller ID 25.",
+        "messageType": "compliance",
+        "time": "2025-09-03 14:00"
     },
     {
-        "id": 11,
-        "text": "New order placed for Chicken Biryani.",
-        "read": false
+      "id": 11,
+      "text": "New order placed for Chicken Biryani.",
+      "read": false,
+      "message": "Seller requested faster payout cycle for high-demand items.",
+      "messageType": "seller",
+      "time": "2025-09-03 14:20"
     },
     {
-        "id": 12,
-        "text": "Order ID 102 for Veg Burger requested for cancellation.",
-        "read": false
+      "id": 12,
+      "text": "Order ID 102 for Veg Burger requested for cancellation.",
+      "read": false,
+      "message": "Customer raised a complaint about incorrect bill for Order ID 120.",
+      "messageType": "customer",
+      "time": "2025-09-03 14:45"
     },
     {
-        "id": 13,
-        "text": "The cancellation of Order ID 102 (Veg Burger) has been approved.",
-        "read": true
+      "id": 13,
+      "text": "The cancellation of Order ID 102 (Veg Burger) has been approved.",
+      "read": false,
+      "message": "Seller requested clarification regarding updated commission rates.",
+      "messageType": "financial",
+      "time": "2025-09-03 15:05"
     },
     {
-        "id": 14,
-        "text": "Your rejected order ID 103 (Paneer Tikka) has been assigned to another seller.",
-        "read": false
+      "id": 14,
+      "text": "Your rejected order ID 103 (Paneer Tikka) has been assigned to another seller.",
+      "read": false,
+      "message": "Customer reported delay in refund for cancelled Order ID 115.",
+      "messageType": "customer",
+      "time": "2025-09-03 15:30"
     },
     {
-        "id": 15,
-        "text": "Payment received for Order ID 104 (Fish Curry).",
-        "read": false
+      "id": 15,
+      "text": "Payment received for Order ID 104 (Fish Curry).",
+      "read": false,
+      "message": "System alert: Settlement batch process completed successfully.",
+      "messageType": "system",
+      "time": "2025-09-03 15:50"
     },
     {
-        "id": 16,
-        "text": "Order ID 105 (Masala Dosa) is out for delivery.",
-        "read": false
+      "id": 16,
+      "text": "Order ID 105 (Masala Dosa) is out for delivery.",
+      "read": false,
+      "message": "Seller requested approval for new packaging design compliance.",
+      "messageType": "compliance",
+      "time": "2025-09-03 16:15"
     },
     {
-        "id": 17,
-        "text": "Order ID 105 (Masala Dosa) delivered successfully.",
-        "read": true
+      "id": 17,
+      "text": "Order ID 105 (Masala Dosa) delivered successfully.",
+      "read": false,
+      "message": "Customer submitted feedback survey: requested more vegan options.",
+      "messageType": "customer",
+      "time": "2025-09-03 16:40"
     },
     {
-        "id": 18,
-        "text": "Customer re-ordered Chicken Biryani.",
-        "read": false
+      "id": 18,
+      "text": "Customer re-ordered Chicken Biryani.",
+      "read": false,
+      "message": "Seller asked for additional delivery slots for evening rush.",
+      "messageType": "seller",
+      "time": "2025-09-03 17:05"
     },
     {
-        "id": 19,
-        "text": "Delivery of Order ID 107 (Shawarma Roll) is delayed by 15 minutes.",
-        "read": false
+      "id": 19,
+      "text": "Delivery of Order ID 107 (Shawarma Roll) is delayed by 15 minutes.",
+      "read": false,
+      "message": "System warning: High delivery demand in Kochi region today.",
+      "messageType": "system",
+      "time": "2025-09-03 17:25"
     },
     {
-        "id": 20,
-        "text": "System maintenance scheduled for tonight at 2:00 AM.",
-        "read": false
+      "id": 20,
+      "text": "System maintenance scheduled for tonight at 2:00 AM.",
+      "read": false,
+      "message": "Compliance alert: Update seller licenses by 30th September.",
+      "messageType": "compliance",
+      "time": "2025-09-03 18:00"
     }
-]
+  ]
+  
