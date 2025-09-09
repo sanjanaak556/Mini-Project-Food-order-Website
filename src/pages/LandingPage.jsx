@@ -1,12 +1,14 @@
 import React from 'react'
-import ImageCarousel from '../components/ImageCarousel'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
+import AboutSection from '../components/AboutSection'
+import FoodCarousel from '../components/FoodCarousel'
 
 
 function LandingPage() {
     return (
         <div>
+            {/* hero section */}
             <div className="relative h-screen w-full overflow-hidden z-0">
                 {/* Background Video */}
                 <video
@@ -35,16 +37,11 @@ function LandingPage() {
                 </div>
             </div>
 
-            {/* About Section */}
-            <section className="px-10 py-16 bg-gray-100 text-center">
-                <h2 className="text-3xl font-bold mb-4">About Us</h2>
-                <p>
-                    Welcome to Hungerhub - your go-to food ordering website. We bring your favorite meals right to your doorstep.
-                </p>
-            </section>
+            {/* about Section */}
+            <AboutSection />
 
             {/* Running Images */}
-            <ImageCarousel />
+            <FoodCarousel />
 
             {/* Contact Section */}
             <section className="px-10 py-16 text-center bg-white">
