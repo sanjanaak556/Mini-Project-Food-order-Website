@@ -1,26 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = {
+  orders: [],
+};
+
 const ordersSlice = createSlice({
   name: "orders",
-  initialState: [], // Start fresh, no localStorage persistence
+  initialState,
   reducers: {
     addOrder: (state, action) => {
-      state.push(action.payload);
+      state.orders.push(action.payload);
     },
+    cancelOrder: (state, action) => {
+      const id = action.payload;
+      const order = state.orders.find((o) => o.id === id);
+      if (order) {
+        order.status = "Cancelled";
+      }
+    },
+    //  New reducer for auto-tracking
     updateOrderStatus: (state, action) => {
       const { id, status } = action.payload;
-      const order = state.find((o) => o.id === id);
+      const order = state.orders.find((o) => o.id === id);
       if (order) {
         order.status = status;
       }
     },
-    clearOrders: () => {
-      return [];
-    },
   },
 });
 
-export const { addOrder, updateOrderStatus, clearOrders } = ordersSlice.actions;
+export const { addOrder, cancelOrder, updateOrderStatus } = ordersSlice.actions;
 export default ordersSlice.reducer;
+
 
 

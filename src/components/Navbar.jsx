@@ -1,69 +1,65 @@
-import React from "react"
-import { Link, useLocation } from "react-router-dom"
-import LogOutButton from "./LogOutButton"
-import ThemeToggleIcon from "./ThemeToggleIcon"
+// Navbar.jsx
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import ThemeToggleIcon from "./ThemeToggleIcon";
 
 function Navbar() {
-  const location = useLocation()
+  const location = useLocation();
+  const path = location.pathname;
 
-  // for determining current path
-  const path = location.pathname
+  // All navbars are transparent
+  const navBg = "bg-transparent";
 
-  // Conditional rendering of navbar items
-  let navItems
+  // Text color logic
+  const isLandingPage = path === "/";
+  const isCustomerHome = path === "/customer";
 
-  if (path === "/") {
-    // Landing Page Navbar
-    navItems = (
-      <>
-        <Link to="/" className="text-white font-semibold hover:text-red-600 px-3">
-          Home
-        </Link>
-        <a href="#about" className="text-white font-semibold hover:text-red-600 px-3">
-          About
-        </a>
-        <a href="#contact" className="text-white font-semibold hover:text-red-600 px-3">
-          Contact
-        </a>
-        <Link to="/login" className="text-white font-semibold hover:text-red-600 px-3">
-          Login
-        </Link>
-        <ThemeToggleIcon />
-      </>
-    )
-  } else if (path.startsWith("/customer")) {
-    // Customer Layout Navbar
-    navItems = (
-      <>
-      <Link to="/customer" className="text-black font-semibold hover:text-red-600 px-3">
-          Menu
-        </Link>
-        <Link to="/customer/orders" className="text-black font-semibold hover:text-red-600 px-3">
-          My Orders
-        </Link>
-        <Link to="/customer/cart" className="text-black font-semibold hover:text-red-600 px-3">
-          Cart
-        </Link>
-        <Link to="/customer/profile" className="text-black font-semibold hover:text-red-600 px-3">
-          Profile
-        </Link>
-        <LogOutButton />
-      </>
-    )
-  }
+  const linkColor =
+    isLandingPage || isCustomerHome ? "text-white" : "text-black";
 
   return (
-    <nav className="flex justify-between items-center px-6 py-4 absolute top-0 w-full z-50">
-      {/* Logo + Website Name */}
+    <nav className={`fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 ${navBg} `}
+      style={{ backgroundColor: "transparent" }}>
+      {/* Logo */}
       <div className="flex gap-3 items-center">
         <img src="/images/H-logo.jpg" alt="Logo" className="w-10 h-10 rounded-full" />
-        <h1 className="text-2xl font-bold text-red-500">HungerHub</h1>
+        <h1 className={`text-2xl font-bold ${linkColor}`}>HungerHub</h1>
       </div>
-      {/* Render menu items */}
-      <div className="flex gap-4">{navItems}</div>
+
+      {/* Links */}
+      <div className="flex gap-4">
+        {path.startsWith("/customer") ? (
+          <>
+            <Link to="/customer" className={`${linkColor} font-semibold hover:text-red-400 px-3`}>
+              Home
+            </Link>
+            <Link to="/customer/orders" className={`${linkColor} font-semibold hover:text-red-400 px-3`}>
+              My Orders
+            </Link>
+            <Link to="/customer/cart" className={`${linkColor} font-semibold hover:text-red-400 px-3`}>
+              Cart
+            </Link>
+            <Link to="/customer/wishlist" className={`${linkColor} font-semibold hover:text-red-400 px-3`}>
+              Wishlist
+            </Link>
+            <Link to="/" className={`${linkColor} font-semibold hover:text-red-400 px-3`}>
+              Logout
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link to="/" className={`${linkColor} font-semibold hover:text-red-400 px-3`}>Home</Link>
+            <a href="#about" className={`${linkColor} font-semibold hover:text-red-400 px-3`}>About</a>
+            <a href="#contact" className={`${linkColor} font-semibold hover:text-red-400 px-3`}>Contact</a>
+            <Link to="/login" className={`${linkColor} font-semibold hover:text-red-400 px-3`}>Login</Link>
+          </>
+        )}
+        <ThemeToggleIcon />
+      </div>
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
+
 

@@ -1,20 +1,22 @@
 import React, { useState } from 'react'
 import { FaArrowLeft, FaUser } from "react-icons/fa"
 import { useLocation, useNavigate } from 'react-router-dom'
+import ThemeToggleIcon from './ThemeToggleIcon'
 
 function Topbar() {
     const [dropdownOpen, setDropdownOpen] = useState(false)
     const navigate = useNavigate()
     const location = useLocation()
 
-const path=location.pathname
+    const path = location.pathname
 
     const handleLogout = () => {
         navigate("/")
     }
 
     return (
-        <div className='flex justify-end items-center bg-gray-100 p-4 shadow'>
+        <div className='flex justify-end items-center bg-gray-100 p-4 shadow gap-4'>
+            <ThemeToggleIcon />
             <div className='relative'>
                 <button onClick={() => setDropdownOpen(!dropdownOpen)}
                     className='w-10 h-10 rounded-full bg-red-500 flex items-center justify-center'>

@@ -42,7 +42,7 @@ function SellerDashboard() {
         <img
           src="/images/bg-2.jpg" // replace with your own
           alt="Background"
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover opacity-60"
         />
       </div>
 
@@ -53,7 +53,7 @@ function SellerDashboard() {
           <h1 className="text-3xl font-bold text-gray-900">
             Welcome back, <span className="text-red-600">{sellerName}</span> 
           </h1>
-          <p className="mt-3 text-white font-semibold text-lg">
+          <p className="mt-3 text-white font-semibold text-xl">
             Your store, your journey. Grow sales, track performance, and build lasting customer relationships.
           </p>
         </div>

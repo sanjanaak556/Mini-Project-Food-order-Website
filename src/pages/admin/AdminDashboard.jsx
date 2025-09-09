@@ -50,13 +50,13 @@ function AdminDashboard() {
   ];
 
   return (
-    <div className="ml-64 min-h-screen relative">
+    <div className="ml-64 min-h-screen relative flex flex-col items-center">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
           src="/images/bg-3.jpg" // Replace with your own image
           alt="Background"
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover opacity-60"
         />
       </div>
 
@@ -67,7 +67,7 @@ function AdminDashboard() {
           <h1 className="text-3xl font-bold text-gray-900">
             Welcome back, <span className="text-blue-600">{adminName}</span> 
           </h1>
-          <p className="mt-3 text-gray-700 text-lg">
+          <p className="mt-3 text-white font-semibold text-xl">
             Shape the future of your marketplace. Every decision here fuels growth, innovation, and customer satisfaction.
           </p>
         </div>

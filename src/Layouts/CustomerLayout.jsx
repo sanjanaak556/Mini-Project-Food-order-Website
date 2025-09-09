@@ -6,7 +6,7 @@ import Footer from '../components/Footer'
 
 function CustomerLayout() {
     return (
-        <div className='p-6'>
+        <div className="min-h-screen">
             <Navbar />
             <Outlet />
             <Footer />
