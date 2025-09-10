@@ -53,7 +53,7 @@ function ProductDetails() {
   }
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
+    <div className="p-6 max-w-4xl mt-10 mx-auto">
       {/* Back Button */}
       <button
         onClick={() => navigate("/customer")}
