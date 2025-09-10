@@ -92,11 +92,10 @@ export default function Orders() {
                 <button
                   onClick={() => handleCancel(order.id, order.status)}
                   disabled={order.status === "Cancelled"}
-                  className={`flex items-center gap-2 px-3 py-1 border rounded hover:bg-gray-50 ${
-                    order.status === "Cancelled"
+                  className={`flex items-center gap-2 px-3 py-1 border rounded hover:bg-gray-50 ${order.status === "Cancelled"
                       ? "opacity-50 cursor-not-allowed"
                       : ""
-                  }`}
+                    }`}
                 >
                   <FaTimesCircle /> Cancel
                 </button>

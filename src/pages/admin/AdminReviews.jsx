@@ -5,13 +5,13 @@ function AdminReviews() {
   const [adminReviews, setAdminReviews] = useState([]);
 
   useEffect(() => {
-    fetch("/data/reviews.json") 
+    fetch("/data/reviews.json")
       .then((res) => res.json())
       .then((data) => setAdminReviews(data))
       .catch((err) => console.error("Error fetching admin reviews:", err));
   }, []);
 
-  // Helper function to render stars
+  //  function to render stars
   const renderStars = (rating) => {
     return (
       <div className="flex text-yellow-500">
@@ -26,8 +26,8 @@ function AdminReviews() {
     <div className="ml-64 p-6 bg-gray-50 min-h-screen">
       {/* Heading */}
       <h2 className="text-3xl font-bold mb-6 text-gray-800 flex items-center gap-2">
-  <FaStar className="text-yellow-500" /> What Customers Say
-</h2>
+        <FaStar className="text-yellow-500" /> What Customers Say
+      </h2>
 
       {/* Reviews Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

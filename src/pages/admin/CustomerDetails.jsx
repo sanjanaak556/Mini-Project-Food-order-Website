@@ -190,9 +190,8 @@ function CustomerDetails() {
 
           <button
             onClick={handleSuspend}
-            className={`flex items-center gap-2 px-4 py-2 rounded text-white ${
-              customer.status === "active" ? "bg-red-500" : "bg-gray-600"
-            }`}
+            className={`flex items-center gap-2 px-4 py-2 rounded text-white ${customer.status === "active" ? "bg-red-500" : "bg-gray-600"
+              }`}
           >
             {customer.status === "active" ? (
               <>

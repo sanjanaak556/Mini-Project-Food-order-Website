@@ -10,7 +10,7 @@ const STATUS_STEPS = [
 ];
 
 export default function VerticalTracker({ status }) {
-  const [progress, setProgress] = useState(0); // 0 = start, 1 = full
+  const [progress, setProgress] = useState(0);
 
   // Compute target step index
   const targetIndex = STATUS_STEPS.indexOf(status);
@@ -68,9 +68,8 @@ export default function VerticalTracker({ status }) {
         {STATUS_STEPS.map((step, idx) => (
           <p
             key={idx}
-            className={`mb-10 transition-colors duration-500 ${
-              idx <= progress ? "font-bold text-green-600" : "text-gray-500"
-            }`}
+            className={`mb-10 transition-colors duration-500 ${idx <= progress ? "font-bold text-green-600" : "text-gray-500"
+              }`}
           >
             {step}
           </p>

@@ -14,7 +14,7 @@ function CustomerDashboard() {
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
 
-  // Redux state (optional: can be used for cart count in Navbar)
+  // Redux state 
   const cartItems = useSelector((state) => state.cart.cartItems);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ function CustomerDashboard() {
       });
   }, []);
 
-  // 🔹 Combined search + filter
+  // Combined search + filter
   const applyFilters = (filterType = activeFilter, filterValue = null, search = searchTerm) => {
     let data = [...menu];
 

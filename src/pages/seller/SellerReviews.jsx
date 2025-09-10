@@ -4,7 +4,7 @@ function SellerReviews() {
   const [sellerReviews, setSellerReviews] = useState([]);
 
   useEffect(() => {
-    fetch("/data/reviews.json") 
+    fetch("/data/reviews.json")
       .then((res) => res.json())
       .then((data) => setSellerReviews(data))
       .catch((err) => console.error("Error fetching seller reviews:", err));

@@ -9,7 +9,7 @@ import {
 
 function AdminDashboard() {
 
-  // Dummy stats (can be replaced with API later)
+  // Dummy stats
   const stats = [
     {
       title: "Orders this month",
@@ -43,7 +43,7 @@ function AdminDashboard() {
       {/* Background image */}
       <div className="absolute inset-0">
         <img
-          src="/images/bg-3.jpg" // Replace with your own image
+          src="/images/bg-3.jpg"
           alt="Background"
           className="w-full h-full object-cover opacity-60"
         />

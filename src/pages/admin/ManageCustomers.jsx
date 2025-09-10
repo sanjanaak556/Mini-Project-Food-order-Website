@@ -33,7 +33,7 @@ function ManageCustomers() {
 
   const navigate = useNavigate();
 
-  // Load from LocalStorage or API
+  // Load from LocalStorage 
   useEffect(() => {
     const saved = localStorage.getItem("customers");
     if (saved) {
@@ -310,11 +310,10 @@ function ManageCustomers() {
             {filteredCustomers.map((cust) => (
               <tr
                 key={cust.id}
-                className={`border-b transition ${
-                  cust.status === "suspended"
+                className={`border-b transition ${cust.status === "suspended"
                     ? "bg-gray-200 opacity-70"
                     : "hover:bg-gray-50"
-                }`}
+                  }`}
               >
                 <td className="p-3">{cust.id}</td>
 
@@ -405,11 +404,10 @@ function ManageCustomers() {
                     </select>
                   ) : (
                     <span
-                      className={`font-semibold ${
-                        cust.verification === "done"
+                      className={`font-semibold ${cust.verification === "done"
                           ? "text-green-600"
                           : "text-red-500"
-                      }`}
+                        }`}
                     >
                       {cust.verification}
                     </span>
@@ -442,11 +440,10 @@ function ManageCustomers() {
                       </button>
                       <button
                         onClick={() => handleSuspend(cust.id)}
-                        className={`px-2 py-1 text-white rounded flex items-center gap-1 ${
-                          cust.status === "active"
+                        className={`px-2 py-1 text-white rounded flex items-center gap-1 ${cust.status === "active"
                             ? "bg-red-500"
                             : "bg-gray-600"
-                        }`}
+                          }`}
                       >
                         {cust.status === "active" ? (
                           <>

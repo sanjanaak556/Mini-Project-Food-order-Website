@@ -38,18 +38,17 @@ export default function TrackOrder() {
   return (
     <div className="p-6 ml-64">
       <button
-  onClick={() => navigate("/admin/orders")}
-  className="mb-4 flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
->
-  <FaClipboardList className="text-lg" />
-  <span>Go Back to Orders</span>
-</button>
+        onClick={() => navigate("/admin/orders")}
+        className="mb-4 flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
+      >
+        <FaClipboardList className="text-lg" />
+        <span>Go Back to Orders</span>
+      </button>
 
 
       <div
-        className={`bg-white shadow-md rounded-lg p-6 max-w-lg mx-auto ${
-          order.status === "Cancelled" ? "opacity-70 pointer-events-none" : ""
-        }`}
+        className={`bg-white shadow-md rounded-lg p-6 max-w-lg mx-auto ${order.status === "Cancelled" ? "opacity-70 pointer-events-none" : ""
+          }`}
       >
         <img
           src={order.imageUrl}
@@ -71,8 +70,8 @@ export default function TrackOrder() {
               order.status === "Cancelled"
                 ? "text-red-600"
                 : order.status === "Delivered"
-                ? "text-green-600"
-                : "text-blue-600"
+                  ? "text-green-600"
+                  : "text-blue-600"
             }
           >
             {order.status}

@@ -128,8 +128,8 @@ function ManageOrders() {
                   order.status === "Cancelled"
                     ? "text-red-600"
                     : order.status === "Delivered"
-                    ? "text-green-600"
-                    : "text-blue-600"
+                      ? "text-green-600"
+                      : "text-blue-600"
                 }
               >
                 {order.status}

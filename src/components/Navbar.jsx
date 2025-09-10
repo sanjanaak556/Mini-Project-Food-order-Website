@@ -10,7 +10,7 @@ function Navbar() {
   // Toggle state for mobile menu
   const [isOpen, setIsOpen] = useState(false);
 
-  // All navbars are transparent
+  // for transparent navbars
   const navBg = "bg-transparent";
 
   // Text color logic
@@ -20,7 +20,7 @@ function Navbar() {
   const linkColor =
     isLandingPage || isCustomerHome ? "text-white" : "text-black";
 
-  // Links (common for reuse)
+  // Links 
   const customerLinks = (
     <>
       <Link

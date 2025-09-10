@@ -6,7 +6,7 @@ function Sidebar() {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
-  // Helper: check active path
+  // check active path
   const isActive = (path) =>
     location.pathname === path
       ? "bg-red-500 text-white shadow-md"

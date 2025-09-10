@@ -48,7 +48,7 @@ function ProductDetails() {
   };
 
   const handleAddToCart = () => {
-    dispatch(addToCart(product));    
+    dispatch(addToCart(product));
     alert(`${product.name} added to cart! 🛒`);
   }
 
@@ -103,15 +103,14 @@ function ProductDetails() {
             <button
               onClick={handleAddToCart}
               className="flex-1 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
-              
+
             >
               Add to Cart
             </button>
             <button
               onClick={handleWishlist}
-              className={`flex items-center justify-center px-4 py-2 rounded ${
-                inWishlist ? "bg-pink-500 text-white" : "bg-gray-200 text-gray-700"
-              }`}
+              className={`flex items-center justify-center px-4 py-2 rounded ${inWishlist ? "bg-pink-500 text-white" : "bg-gray-200 text-gray-700"
+                }`}
             >
               <FaHeart className={inWishlist ? "text-white" : "text-red-500"} />
             </button>

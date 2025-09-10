@@ -16,7 +16,7 @@ function Notifications() {
       .catch((err) => console.error("Error fetching orders:", err));
   }, []);
 
-  // Fetch system messages fresh every time (no localStorage persistence)
+  // Fetch system messages fresh every time 
   useEffect(() => {
     fetch("/data/notifications.json")
       .then((res) => res.json())
@@ -124,11 +124,10 @@ function Notifications() {
               <li
                 key={msg.id}
                 onClick={() => !msg.read && markAsRead(msg.id)}
-                className={`p-3 border rounded-lg cursor-pointer ${
-                  msg.read
+                className={`p-3 border rounded-lg cursor-pointer ${msg.read
                     ? "bg-gray-200 text-gray-600"
                     : "bg-yellow-200 font-medium"
-                }`}
+                  }`}
               >
                 {msg.text}
               </li>

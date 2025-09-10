@@ -1,4 +1,3 @@
-// SellerOffers.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FiEdit2, FiTrash2, FiSave, FiPlus, FiX } from "react-icons/fi";
@@ -138,9 +137,8 @@ export default function SellerOffers() {
               name="name"
               value={form.name}
               onChange={handleChange}
-              className={`mt-1 block w-full rounded-md p-2 border ${
-                errors.name ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`mt-1 block w-full rounded-md p-2 border ${errors.name ? "border-red-500" : "border-gray-300"
+                }`}
             />
             {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
           </div>
@@ -151,9 +149,8 @@ export default function SellerOffers() {
               name="image"
               value={form.image}
               onChange={handleChange}
-              className={`mt-1 block w-full rounded-md p-2 border ${
-                errors.image ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`mt-1 block w-full rounded-md p-2 border ${errors.image ? "border-red-500" : "border-gray-300"
+                }`}
             />
             {errors.image && <p className="text-red-500 text-sm">{errors.image}</p>}
           </div>
@@ -164,9 +161,8 @@ export default function SellerOffers() {
               name="typeOfOffer"
               value={form.typeOfOffer}
               onChange={handleChange}
-              className={`mt-1 block w-full rounded-md p-2 border ${
-                errors.typeOfOffer ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`mt-1 block w-full rounded-md p-2 border ${errors.typeOfOffer ? "border-red-500" : "border-gray-300"
+                }`}
             />
             {errors.typeOfOffer && <p className="text-red-500 text-sm">{errors.typeOfOffer}</p>}
           </div>
@@ -177,9 +173,8 @@ export default function SellerOffers() {
               name="offerInterval"
               value={form.offerInterval}
               onChange={handleChange}
-              className={`mt-1 block w-full rounded-md p-2 border ${
-                errors.offerInterval ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`mt-1 block w-full rounded-md p-2 border ${errors.offerInterval ? "border-red-500" : "border-gray-300"
+                }`}
             />
             {errors.offerInterval && <p className="text-red-500 text-sm">{errors.offerInterval}</p>}
           </div>
@@ -191,9 +186,8 @@ export default function SellerOffers() {
               value={form.originalPrice}
               onChange={handleChange}
               type="number"
-              className={`mt-1 block w-full rounded-md p-2 border ${
-                errors.originalPrice ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`mt-1 block w-full rounded-md p-2 border ${errors.originalPrice ? "border-red-500" : "border-gray-300"
+                }`}
             />
             {errors.originalPrice && <p className="text-red-500 text-sm">{errors.originalPrice}</p>}
           </div>
@@ -205,9 +199,8 @@ export default function SellerOffers() {
               value={form.offerPrice}
               onChange={handleChange}
               type="number"
-              className={`mt-1 block w-full rounded-md p-2 border ${
-                errors.offerPrice ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`mt-1 block w-full rounded-md p-2 border ${errors.offerPrice ? "border-red-500" : "border-gray-300"
+                }`}
             />
             {errors.offerPrice && <p className="text-red-500 text-sm">{errors.offerPrice}</p>}
           </div>
@@ -222,9 +215,8 @@ export default function SellerOffers() {
               step="0.1"
               min="0"
               max="5"
-              className={`mt-1 block w-full rounded-md p-2 border ${
-                errors.rating ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`mt-1 block w-full rounded-md p-2 border ${errors.rating ? "border-red-500" : "border-gray-300"
+                }`}
             />
             {errors.rating && <p className="text-red-500 text-sm">{errors.rating}</p>}
           </div>

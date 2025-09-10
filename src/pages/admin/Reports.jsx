@@ -103,9 +103,8 @@ function Reports() {
             <div className="flex flex-wrap gap-2 mt-auto">
               <button
                 onClick={() => updateStatus(report.id, "Approved")}
-                className={`flex items-center gap-1 px-3 py-1 rounded-lg text-white ${
-                  report.actionStatus === "Approved" ? "bg-green-600" : "bg-green-500 hover:bg-green-600"
-                }`}
+                className={`flex items-center gap-1 px-3 py-1 rounded-lg text-white ${report.actionStatus === "Approved" ? "bg-green-600" : "bg-green-500 hover:bg-green-600"
+                  }`}
               >
                 <FaCheckCircle />
                 {report.actionStatus === "Approved" ? "Approved" : "Approve"}
@@ -113,9 +112,8 @@ function Reports() {
 
               <button
                 onClick={() => updateStatus(report.id, "Rejected")}
-                className={`flex items-center gap-1 px-3 py-1 rounded-lg text-white ${
-                  report.actionStatus === "Rejected" ? "bg-red-600" : "bg-red-500 hover:bg-red-600"
-                }`}
+                className={`flex items-center gap-1 px-3 py-1 rounded-lg text-white ${report.actionStatus === "Rejected" ? "bg-red-600" : "bg-red-500 hover:bg-red-600"
+                  }`}
               >
                 <FaTimesCircle />
                 {report.actionStatus === "Rejected" ? "Rejected" : "Reject"}
@@ -125,9 +123,8 @@ function Reports() {
                 onClick={() =>
                   updateStatus(report.id, report.actionStatus === "Flagged" ? "All" : "Flagged")
                 }
-                className={`flex items-center gap-1 px-3 py-1 rounded-lg text-white ${
-                  report.actionStatus === "Flagged" ? "bg-yellow-600" : "bg-yellow-500 hover:bg-yellow-600"
-                }`}
+                className={`flex items-center gap-1 px-3 py-1 rounded-lg text-white ${report.actionStatus === "Flagged" ? "bg-yellow-600" : "bg-yellow-500 hover:bg-yellow-600"
+                  }`}
               >
                 <FaFlag />
                 {report.actionStatus === "Flagged" ? "Flagged" : "Flag"}

@@ -7,7 +7,7 @@ function SellerOrders() {
   const dispatch = useDispatch();
   const [filter, setFilter] = useState("New");
 
-  // ✅ Only localStorage for reportSubmitted
+  //  localStorage for reportSubmitted
   const [reportSubmitted, setReportSubmitted] = useState(
     JSON.parse(localStorage.getItem("reportSubmitted")) || {}
   );
@@ -15,10 +15,8 @@ function SellerOrders() {
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [deliveredTime, setDeliveredTime] = useState("");
 
-  // ✅ Always filter fresh from Redux state
   const filteredOrders = orders.filter((order) => order.status === filter);
 
-  // ✅ Status change will automatically move order under correct filter
   const handleStatusChange = (id, status) => {
     dispatch(updateOrderStatus({ id, status }));
   };
@@ -59,11 +57,10 @@ function SellerOrders() {
           <button
             key={f}
             onClick={() => setFilter(f)}
-            className={`px-4 py-2 rounded-lg ${
-              filter === f
+            className={`px-4 py-2 rounded-lg ${filter === f
                 ? "bg-red-500 text-white"
                 : "bg-gray-200 text-gray-700"
-            }`}
+              }`}
           >
             {f}
           </button>
@@ -150,11 +147,10 @@ function SellerOrders() {
                   <button
                     onClick={() => openReportModal(order)}
                     disabled={reportSubmitted[order.id]?.submitted}
-                    className={`px-3 py-1 rounded-lg ${
-                      reportSubmitted[order.id]?.submitted
+                    className={`px-3 py-1 rounded-lg ${reportSubmitted[order.id]?.submitted
                         ? "bg-gray-400 cursor-not-allowed"
                         : "bg-purple-500 text-white hover:bg-purple-600"
-                    }`}
+                      }`}
                   >
                     {reportSubmitted[order.id]?.submitted
                       ? "Report Submitted"
@@ -162,7 +158,7 @@ function SellerOrders() {
                   </button>
                 )}
 
-                {/* Rejected orders - no extra actions */}
+                {/* Rejected orders */}
                 {filter === "Rejected" && (
                   <span className="text-sm text-gray-500">
                     This order was rejected.

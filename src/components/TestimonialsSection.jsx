@@ -51,6 +51,7 @@ function TestimonialsSection() {
     role: "Customer",
     feedback: "",
     rating: 0,
+    img: null,
   });
 
   // Carousel settings
@@ -77,7 +78,7 @@ function TestimonialsSection() {
 
     const newReview = {
       ...formData,
-      img: "/images/default-user.png", // fallback avatar
+      img: formData.img || "/images/default-user.png", // uploaded or fallback
     };
 
     setTestimonials([...testimonials, newReview]);
@@ -87,9 +88,17 @@ function TestimonialsSection() {
       role: "Customer",
       feedback: "",
       rating: 0,
+      img: null,
     });
 
     alert("Thank you for your feedback! 🎉");
+  };
+
+  const handlePhotoUpload = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      const imgUrl = URL.createObjectURL(e.target.files[0]);
+      setFormData({ ...formData, img: imgUrl });
+    }
   };
 
   return (
@@ -168,6 +177,26 @@ function TestimonialsSection() {
             ))}
           </div>
 
+          {/* Photo Upload */}
+          <div>
+            <label className="block mb-1 font-semibold text-gray-600">
+              Upload Photo:
+            </label>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handlePhotoUpload}
+              className="w-full border rounded-lg px-3 py-2"
+            />
+            {formData.img && (
+              <img
+                src={formData.img}
+                alt="Preview"
+                className="mt-3 h-20 w-20 object-cover rounded-full border"
+              />
+            )}
+          </div>
+
           <button
             type="submit"
             className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700"
@@ -181,4 +210,5 @@ function TestimonialsSection() {
 }
 
 export default TestimonialsSection;
+
 

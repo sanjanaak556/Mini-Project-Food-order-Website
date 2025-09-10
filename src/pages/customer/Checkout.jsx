@@ -1,4 +1,3 @@
-// src/pages/customer/Checkout.jsx
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
@@ -14,7 +13,7 @@ export default function Checkout() {
   // Redux cart as fallback
   const reduxCart = useSelector((state) => state.cart.cart || []);
 
-  // Read state passed when navigating from cart (Cart.jsx passes state)
+  // Read state passed when navigating from cart 
   const {
     items: stateItems = null,
     deliveryCharge: stateDelivery = null,
@@ -23,16 +22,13 @@ export default function Checkout() {
   } = location.state || {};
 
   // Determine which items to checkout:
-  // 1) singleItem (Place Order from single card)
-  // 2) stateItems (Place All from cart modal or passed from Cart)
-  // 3) reduxCart fallback
   const itemsToCheckout = singleItem
     ? [{ ...singleItem, quantity: singleItem.quantity || 1 }]
     : stateItems && stateItems.length
-    ? stateItems.map((it) => ({ ...it, quantity: it.quantity || 1 }))
-    : reduxCart.map((it) => ({ ...it, quantity: it.quantity || 1 }));
+      ? stateItems.map((it) => ({ ...it, quantity: it.quantity || 1 }))
+      : reduxCart.map((it) => ({ ...it, quantity: it.quantity || 1 }));
 
-  // Charges: use passed values if provided, else defaults
+  // Charges
   const deliveryCharge = typeof stateDelivery === "number" ? stateDelivery : 40;
   const packingCharge = typeof statePacking === "number" ? statePacking : 20;
 
@@ -72,9 +68,6 @@ export default function Checkout() {
     localStorage.setItem("orders", JSON.stringify([...storedOrders, newOrder]));
 
     // Update cart depending on what was ordered:
-    // - If singleItem: remove only that item from cart
-    // - If items came from stateItems (assume "Place All"): clear cart
-    // - If fallback to reduxCart (user came direct to checkout), clear cart after placing
     if (singleItem) {
       dispatch(removeFromCart(singleItem.id));
       // sync localStorage cart
@@ -183,7 +176,6 @@ export default function Checkout() {
 
             <button
               onClick={() => {
-                // go back: if user came from cart, go back to cart; otherwise go to customer home
                 const cameFromCart = !!stateItems || !!singleItem;
                 navigate(cameFromCart ? "/customer/cart" : "/customer");
               }}

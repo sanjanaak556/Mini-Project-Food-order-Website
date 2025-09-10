@@ -1,0 +1,31 @@
+/* Smooth font rendering */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    background-color: #fafafa;
+}
+
+/* All buttons: cursor pointer on hover */
+button {
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Slight hover effect for better UX */
+button:hover {
+    transform: scale(1.02);
+}
+
+/* Inputs and textareas basic style */
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+/* Add smooth transition for links */
+a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+}

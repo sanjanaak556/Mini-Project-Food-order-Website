@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import { addToCart } from "../../redux/CartSlice";
-import { useDispatch } from "react-redux";  
+import { useDispatch } from "react-redux";
 
 function DiscountDetails() {
     const { id } = useParams();
@@ -17,7 +17,7 @@ function DiscountDetails() {
                 const found = data.find((p) => p.id === parseInt(id));
 
                 if (found) {
-                    // 🔑 Normalize the product before storing in state
+                    //  Normalize the product before storing in state
                     setProduct({
                         ...found,
                         price: Number(found.discountPrice || found.offerPrice || found.originalPrice) || 0,

@@ -12,14 +12,14 @@ function Filters({ onFilterChange, activeFilter }) {
   };
 
   const getButtonClass = (type) =>
-    `px-4 py-2 rounded-lg font-medium ${
-      activeFilter === type
-        ? "bg-red-600 text-white"
-        : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+    `px-4 py-2 rounded-lg font-medium ${activeFilter === type
+      ? "bg-red-600 text-white"
+      : "bg-gray-200 text-gray-800 hover:bg-gray-300"
     }`;
 
   return (
     <div className="flex flex-wrap gap-3 p-4 justify-center">
+      {/* filter buttons */}
       <button onClick={() => handleFilter("all", null)} className={getButtonClass("all")}>
         All
       </button>

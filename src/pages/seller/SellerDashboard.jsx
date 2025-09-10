@@ -7,7 +7,7 @@ import {
 
 function SellerDashboard() {
 
-  // Dummy stats (replace later with API data)
+  // Dummy stats 
   const stats = [
     {
       title: "Orders this month",
@@ -31,7 +31,7 @@ function SellerDashboard() {
       {/* Background image */}
       <div className="absolute inset-0">
         <img
-          src="/images/bg-2.jpg" // replace with your own
+          src="/images/bg-2.jpg"
           alt="Background"
           className="w-full h-full object-cover opacity-60"
         />

@@ -6,7 +6,7 @@ function AdminNotif() {
   const [notifications, setNotifications] = useState([]);
   const [unreadCount, setUnreadCount] = useState(0);
 
-  // Load notifications from localStorage or API
+  // Load notifications from localStorage 
   useEffect(() => {
     const stored = localStorage.getItem("admin_notifications");
     if (stored) {
@@ -76,11 +76,10 @@ function AdminNotif() {
             <div
               key={notif.id}
               onClick={() => !notif.read && markAsRead(notif.id)}
-              className={`p-4 rounded-lg border cursor-pointer transition duration-300 ${
-                notif.read
+              className={`p-4 rounded-lg border cursor-pointer transition duration-300 ${notif.read
                   ? "bg-gray-100 text-gray-600"
                   : "bg-yellow-50 border-yellow-300 text-gray-900"
-              } ${notif.justRead ? "animate-pulse" : ""}`}
+                } ${notif.justRead ? "animate-pulse" : ""}`}
             >
               <p className="font-medium">{notif.text}</p>
               {notif.message && (

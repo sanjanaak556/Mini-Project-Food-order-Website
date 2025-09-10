@@ -20,7 +20,7 @@ function OffersAndDiscounts() {
     fetch("/data/offersDiscounts.json")
       .then((res) => res.json())
       .then((data) => {
-        // 🔑 Normalize price as number here before storing in Redux
+        //  Normalize price as number
         const normalized = data.map((item) => ({
           ...item,
           price: Number(item.offerPrice || item.discountPrice || item.originalPrice) || 0,

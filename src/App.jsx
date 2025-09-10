@@ -82,7 +82,7 @@ function App() {
         { path: 'reports', element: <Reports /> },
       ]
     },
-    
+
     // Catch-all Route
     { path: '*', element: <NotFound /> }
   ])

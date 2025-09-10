@@ -16,7 +16,7 @@ function Footer() {
         <div>
           <h2 className="text-2xl font-bold text-white mb-3">HungerHub</h2>
           <p className="text-sm leading-relaxed">
-            Your favorite meals delivered fast at your door. 
+            Your favorite meals delivered fast at your door.
             Join us and experience seamless food ordering and delivery.
           </p>
         </div>

@@ -198,9 +198,8 @@ function ManageSellers() {
             {filteredSellers.map((seller) => (
               <tr
                 key={seller.id}
-                className={`border-b hover:bg-gray-50 transition ${
-                  seller.status === "suspended" ? "opacity-50" : ""
-                }`}
+                className={`border-b hover:bg-gray-50 transition ${seller.status === "suspended" ? "opacity-50" : ""
+                  }`}
               >
                 <td className="p-3">{seller.id}</td>
                 <td className="p-3">
@@ -306,11 +305,10 @@ function ManageSellers() {
                     </select>
                   ) : (
                     <span
-                      className={`font-semibold ${
-                        seller.verification === "done"
+                      className={`font-semibold ${seller.verification === "done"
                           ? "text-green-600"
                           : "text-red-500"
-                      }`}
+                        }`}
                     >
                       {seller.verification}
                     </span>
@@ -353,9 +351,8 @@ function ManageSellers() {
                         <FaEdit /> Edit
                       </button>
                       <button
-                        className={`px-2 py-1 text-white rounded flex items-center gap-1 ${
-                          seller.status === "active" ? "bg-red-500" : "bg-gray-600"
-                        }`}
+                        className={`px-2 py-1 text-white rounded flex items-center gap-1 ${seller.status === "active" ? "bg-red-500" : "bg-gray-600"
+                          }`}
                         onClick={() => toggleSuspend(seller.id)}
                       >
                         {seller.status === "active" ? (

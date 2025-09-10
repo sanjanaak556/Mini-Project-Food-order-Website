@@ -30,9 +30,7 @@ function Topbar() {
                             <FaArrowLeft /> Logout</button>
                     </div>
                 )}
-
             </div>
-
         </div>
     )
 }

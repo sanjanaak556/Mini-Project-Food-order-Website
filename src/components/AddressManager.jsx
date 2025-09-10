@@ -64,11 +64,10 @@ function AddressManager() {
                 <span className="text-gray-700">{addr}</span>
                 <button
                   onClick={() => handleSetDefault(addr)}
-                  className={`px-3 py-1 rounded text-sm ${
-                    defaultAddress === addr
+                  className={`px-3 py-1 rounded text-sm ${defaultAddress === addr
                       ? "bg-green-500 text-white"
                       : "bg-gray-200 text-gray-700"
-                  }`}
+                    }`}
                 >
                   {defaultAddress === addr ? "Default" : "Set Default"}
                 </button>

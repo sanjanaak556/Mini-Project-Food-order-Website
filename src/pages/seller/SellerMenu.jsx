@@ -102,7 +102,7 @@ function SellerMenu() {
 
   return (
     <div className="ml-64 p-6 bg-gray-50 min-h-screen">
-      {/* ===== Form ===== */}
+      {/*  Form  */}
       <h2 className="text-2xl font-bold mb-4">
         {editIndex !== null ? "Edit Item" : "Add a New Item"}
       </h2>
@@ -197,15 +197,14 @@ function SellerMenu() {
         </div>
       </form>
 
-      {/* ===== Menu Cards ===== */}
+      {/*  Menu Cards  */}
       <h2 className="text-2xl font-bold mt-8 mb-4">Menu Items</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {items.map((item, index) => (
           <div
             key={index}
-            className={`bg-white rounded-lg shadow relative ${
-              item.outOfStock ? "opacity-50" : ""
-            }`}
+            className={`bg-white rounded-lg shadow relative ${item.outOfStock ? "opacity-50" : ""
+              }`}
           >
             {/* Buttons (Edit / Delete / Stock) */}
             <div className="absolute top-2 right-2 flex gap-2">

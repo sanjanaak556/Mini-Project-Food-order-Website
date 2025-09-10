@@ -1,4 +1,3 @@
-// SellerDiscounts.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FiEdit2, FiTrash2, FiSave, FiPlus, FiX } from "react-icons/fi";
@@ -139,9 +138,8 @@ export default function SellerDiscounts() {
               name="name"
               value={form.name}
               onChange={handleChange}
-              className={`mt-1 block w-full rounded-md p-2 border ${
-                errors.name ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`mt-1 block w-full rounded-md p-2 border ${errors.name ? "border-red-500" : "border-gray-300"
+                }`}
             />
             {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
           </div>
@@ -152,9 +150,8 @@ export default function SellerDiscounts() {
               name="image"
               value={form.image}
               onChange={handleChange}
-              className={`mt-1 block w-full rounded-md p-2 border ${
-                errors.image ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`mt-1 block w-full rounded-md p-2 border ${errors.image ? "border-red-500" : "border-gray-300"
+                }`}
             />
             {errors.image && <p className="text-red-500 text-sm">{errors.image}</p>}
           </div>
@@ -165,9 +162,8 @@ export default function SellerDiscounts() {
               name="typeOfDiscount"
               value={form.typeOfDiscount}
               onChange={handleChange}
-              className={`mt-1 block w-full rounded-md p-2 border ${
-                errors.typeOfDiscount ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`mt-1 block w-full rounded-md p-2 border ${errors.typeOfDiscount ? "border-red-500" : "border-gray-300"
+                }`}
             />
             {errors.typeOfDiscount && <p className="text-red-500 text-sm">{errors.typeOfDiscount}</p>}
           </div>
@@ -178,9 +174,8 @@ export default function SellerDiscounts() {
               name="discountInterval"
               value={form.discountInterval}
               onChange={handleChange}
-              className={`mt-1 block w-full rounded-md p-2 border ${
-                errors.discountInterval ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`mt-1 block w-full rounded-md p-2 border ${errors.discountInterval ? "border-red-500" : "border-gray-300"
+                }`}
             />
             {errors.discountInterval && <p className="text-red-500 text-sm">{errors.discountInterval}</p>}
           </div>
@@ -192,9 +187,8 @@ export default function SellerDiscounts() {
               type="number"
               value={form.originalPrice}
               onChange={handleChange}
-              className={`mt-1 block w-full rounded-md p-2 border ${
-                errors.originalPrice ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`mt-1 block w-full rounded-md p-2 border ${errors.originalPrice ? "border-red-500" : "border-gray-300"
+                }`}
             />
             {errors.originalPrice && <p className="text-red-500 text-sm">{errors.originalPrice}</p>}
           </div>
@@ -206,9 +200,8 @@ export default function SellerDiscounts() {
               type="number"
               value={form.discountPrice}
               onChange={handleChange}
-              className={`mt-1 block w-full rounded-md p-2 border ${
-                errors.discountPrice ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`mt-1 block w-full rounded-md p-2 border ${errors.discountPrice ? "border-red-500" : "border-gray-300"
+                }`}
             />
             {errors.discountPrice && <p className="text-red-500 text-sm">{errors.discountPrice}</p>}
           </div>
@@ -223,9 +216,8 @@ export default function SellerDiscounts() {
               max="5"
               value={form.rating}
               onChange={handleChange}
-              className={`mt-1 block w-full rounded-md p-2 border ${
-                errors.rating ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`mt-1 block w-full rounded-md p-2 border ${errors.rating ? "border-red-500" : "border-gray-300"
+                }`}
             />
             {errors.rating && <p className="text-red-500 text-sm">{errors.rating}</p>}
           </div>
