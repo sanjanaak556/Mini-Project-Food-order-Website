@@ -1,23 +1,32 @@
 import React, { useEffect, useState } from "react";
-import {
-  FaCheckCircle,
-  FaTimesCircle,
-  FaFlag,
-  FaSearch,
-} from "react-icons/fa";
+import { FaCheckCircle, FaTimesCircle, FaFlag, FaSearch } from "react-icons/fa";
 
 function Reports() {
   const [reports, setReports] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filter, setFilter] = useState("All");
 
-  // Load fake API
+  // Load reports from localStorage or API
   useEffect(() => {
-    fetch("https://sanjanaak556.github.io/API-Seller-Orders/Sellers.json") 
-      .then((res) => res.json())
-      .then((data) => setReports(data))
-      .catch((err) => console.error("Error loading reports:", err));
+    const stored = localStorage.getItem("admin_reports");
+    if (stored) {
+      setReports(JSON.parse(stored));
+    } else {
+      fetch("https://sanjanaak556.github.io/API-Seller-Orders/Sellers.json")
+        .then((res) => res.json())
+        .then((data) => {
+          const initial = data.map((r) => ({ ...r, actionStatus: "All" }));
+          setReports(initial);
+          localStorage.setItem("admin_reports", JSON.stringify(initial));
+        })
+        .catch((err) => console.error("Error loading reports:", err));
+    }
   }, []);
+
+  // Save reports to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem("admin_reports", JSON.stringify(reports));
+  }, [reports]);
 
   // Handle status change
   const updateStatus = (id, newStatus) => {
@@ -31,8 +40,7 @@ function Reports() {
   // Filter + Search logic
   const filteredReports = reports.filter((report) => {
     const matchesSearch = report.id.toString().includes(searchTerm);
-    const matchesFilter =
-      filter === "All" || report.actionStatus === filter;
+    const matchesFilter = filter === "All" || report.actionStatus === filter;
     return matchesSearch && matchesFilter;
   });
 
@@ -74,7 +82,6 @@ function Reports() {
             key={report.id}
             className="bg-white shadow-md rounded-xl p-4 flex flex-col justify-between"
           >
-            {/* Image + Title */}
             <img
               src={report.imageUrl}
               alt={report.name}
@@ -83,59 +90,31 @@ function Reports() {
             <h3 className="text-lg font-semibold">{report.name}</h3>
             <p className="text-gray-600 text-sm mb-2">Order ID: {report.id}</p>
 
-            {/* Order Details */}
             <div className="text-sm text-gray-700 space-y-1 mb-3">
-              <p>
-                <span className="font-semibold">Delivered At:</span>{" "}
-                {report.deliveredAt}
-              </p>
-              <p>
-                <span className="font-semibold">Restaurant:</span>{" "}
-                {report.restaurant}
-              </p>
-              <p>
-                <span className="font-semibold">Category:</span>{" "}
-                {report.category}
-              </p>
-              <p>
-                <span className="font-semibold">Quantity:</span>{" "}
-                {report.quantity}
-              </p>
-              <p>
-                <span className="font-semibold">Price:</span> ₹{report.price}
-              </p>
-              <p>
-                <span className="font-semibold">Payment:</span>{" "}
-                {report.paymentMode}
-              </p>
-              <p>
-                <span className="font-semibold">Address:</span>{" "}
-                {report.address}
-              </p>
+              <p><span className="font-semibold">Delivered At:</span> {report.deliveredAt}</p>
+              <p><span className="font-semibold">Restaurant:</span> {report.restaurant}</p>
+              <p><span className="font-semibold">Category:</span> {report.category}</p>
+              <p><span className="font-semibold">Quantity:</span> {report.quantity}</p>
+              <p><span className="font-semibold">Price:</span> ₹{report.price}</p>
+              <p><span className="font-semibold">Payment:</span> {report.paymentMode}</p>
+              <p><span className="font-semibold">Address:</span> {report.address}</p>
             </div>
 
-            {/* Action Buttons */}
             <div className="flex flex-wrap gap-2 mt-auto">
               <button
                 onClick={() => updateStatus(report.id, "Approved")}
                 className={`flex items-center gap-1 px-3 py-1 rounded-lg text-white ${
-                  report.actionStatus === "Approved"
-                    ? "bg-green-600"
-                    : "bg-green-500 hover:bg-green-600"
+                  report.actionStatus === "Approved" ? "bg-green-600" : "bg-green-500 hover:bg-green-600"
                 }`}
               >
                 <FaCheckCircle />
-                {report.actionStatus === "Approved"
-                  ? "Approved"
-                  : "Approve"}
+                {report.actionStatus === "Approved" ? "Approved" : "Approve"}
               </button>
 
               <button
                 onClick={() => updateStatus(report.id, "Rejected")}
                 className={`flex items-center gap-1 px-3 py-1 rounded-lg text-white ${
-                  report.actionStatus === "Rejected"
-                    ? "bg-red-600"
-                    : "bg-red-500 hover:bg-red-600"
+                  report.actionStatus === "Rejected" ? "bg-red-600" : "bg-red-500 hover:bg-red-600"
                 }`}
               >
                 <FaTimesCircle />
@@ -144,17 +123,10 @@ function Reports() {
 
               <button
                 onClick={() =>
-                  updateStatus(
-                    report.id,
-                    report.actionStatus === "Flagged"
-                      ? "All"
-                      : "Flagged"
-                  )
+                  updateStatus(report.id, report.actionStatus === "Flagged" ? "All" : "Flagged")
                 }
                 className={`flex items-center gap-1 px-3 py-1 rounded-lg text-white ${
-                  report.actionStatus === "Flagged"
-                    ? "bg-yellow-600"
-                    : "bg-yellow-500 hover:bg-yellow-600"
+                  report.actionStatus === "Flagged" ? "bg-yellow-600" : "bg-yellow-500 hover:bg-yellow-600"
                 }`}
               >
                 <FaFlag />
@@ -169,3 +141,4 @@ function Reports() {
 }
 
 export default Reports;
+

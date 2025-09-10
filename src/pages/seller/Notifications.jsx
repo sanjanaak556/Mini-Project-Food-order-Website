@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addOrder } from "../../redux/OrdersSlice";
+import { addOrder, rejectOrder } from "../../redux/OrdersSlice";
 import { useNavigate } from "react-router-dom";
 
 function Notifications() {
@@ -16,7 +16,7 @@ function Notifications() {
       .catch((err) => console.error("Error fetching orders:", err));
   }, []);
 
-  // ✅ Fetch system messages fresh every time (no localStorage persistence)
+  // Fetch system messages fresh every time (no localStorage persistence)
   useEffect(() => {
     fetch("/data/notifications.json")
       .then((res) => res.json())
@@ -30,17 +30,18 @@ function Notifications() {
       .catch((err) => console.error("Error fetching notifications:", err));
   }, []);
 
-  // Accept order → moves to New filter
+  // Accept order → moves to New filter & store in Redux/localStorage
   const handleAccept = (order) => {
     dispatch(addOrder({ ...order, status: "New" }));
-    alert(`Order #${order.id} accepted ✅`);
     setOrders((prev) => prev.filter((o) => o.id !== order.id));
+    alert(`Order #${order.id} accepted ✅`);
   };
 
-  // Reject order → remove from list
+  // Reject order → moves to Rejected filter & store in Redux/localStorage
   const handleReject = (order) => {
-    alert(`Order #${order.id} rejected ❌`);
+    dispatch(rejectOrder(order));
     setOrders((prev) => prev.filter((o) => o.id !== order.id));
+    alert(`Order #${order.id} rejected ❌`);
   };
 
   // Mark message read → auto-remove after 2s
@@ -56,7 +57,7 @@ function Notifications() {
   };
 
   return (
-    <div className="p-6 max-w-5xl mx-auto">
+    <div className="p-6 max-w-5xl mx-auto ml-64">
       <h1 className="text-2xl font-bold mb-6 text-center">Notifications</h1>
 
       {/* Orders Section */}
@@ -149,4 +150,6 @@ function Notifications() {
 }
 
 export default Notifications;
+
+
 

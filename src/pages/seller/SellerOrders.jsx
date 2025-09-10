@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateOrderStatus } from "../../redux/OrdersSlice";
 
 function SellerOrders() {
-  const orders = useSelector((state) => state.orders);
+  const orders = useSelector((state) => state.orders.orders) || [];
   const dispatch = useDispatch();
   const [filter, setFilter] = useState("New");
 
@@ -50,12 +50,12 @@ function SellerOrders() {
   };
 
   return (
-    <div className="p-6 max-w-5xl mx-auto">
+    <div className="p-6 max-w-5xl mx-auto ml-64">
       <h1 className="text-2xl font-bold mb-6 text-center">Orders</h1>
 
       {/* Filter Buttons */}
       <div className="flex space-x-3 justify-center mb-6">
-        {["New", "Pending", "Completed", "Cancelled"].map((f) => (
+        {["New", "Pending", "Completed", "Cancelled", "Rejected"].map((f) => (
           <button
             key={f}
             onClick={() => setFilter(f)}
@@ -161,6 +161,13 @@ function SellerOrders() {
                       : "Submit Report"}
                   </button>
                 )}
+
+                {/* Rejected orders - no extra actions */}
+                {filter === "Rejected" && (
+                  <span className="text-sm text-gray-500">
+                    This order was rejected.
+                  </span>
+                )}
               </div>
             </li>
           ))}
@@ -222,6 +229,8 @@ function SellerOrders() {
 }
 
 export default SellerOrders;
+
+
 
 
 

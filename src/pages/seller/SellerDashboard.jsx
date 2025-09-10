@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   FaShoppingCart,
   FaStar,
@@ -6,15 +6,6 @@ import {
 } from "react-icons/fa";
 
 function SellerDashboard() {
-  const [sellerName, setSellerName] = useState("Seller");
-
-  // Simulating fetching seller username from login (localStorage/session)
-  useEffect(() => {
-    const storedName = localStorage.getItem("sellerName");
-    if (storedName) {
-      setSellerName(storedName);
-    }
-  }, []);
 
   // Dummy stats (replace later with API data)
   const stats = [
@@ -51,7 +42,7 @@ function SellerDashboard() {
         {/* Welcome section */}
         <div className="mb-8 text-center">
           <h1 className="text-3xl font-bold text-gray-900">
-            Welcome back, <span className="text-red-600">{sellerName}</span> 
+            Welcome back, <span className="text-red-600">Seller</span>
           </h1>
           <p className="mt-3 text-white font-semibold text-xl">
             Your store, your journey. Grow sales, track performance, and build lasting customer relationships.

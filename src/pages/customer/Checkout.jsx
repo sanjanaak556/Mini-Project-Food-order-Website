@@ -1,20 +1,28 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useNavigate, useLocation } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { addOrder, updateOrderStatus } from "../../redux/OrdersSlice";
 import { clearCart } from "../../redux/CartSlice";
 
 export default function Checkout() {
-  const cart = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const cartFromState = location.state?.items || [];
+  const singleItem = location.state?.singleItem || null;
+  const deliveryCharge = location.state?.deliveryCharge || 40;
+  const packingCharge = location.state?.packingCharge || 20;
+
+  const cart = singleItem ? [singleItem] : cartFromState;
 
   const [payment, setPayment] = useState("card");
   const [showConfirm, setShowConfirm] = useState(false);
   const [placedOrder, setPlacedOrder] = useState(null);
 
-  const total = cart.reduce((sum, item) => sum + item.price * (item.quantity || 1), 0);
+  const itemsTotal = cart.reduce((sum, item) => sum + item.price * (item.quantity || 1), 0);
+  const finalTotal = itemsTotal + deliveryCharge + packingCharge;
 
   const handlePlaceOrder = () => {
     if (cart.length === 0) {
@@ -26,7 +34,10 @@ export default function Checkout() {
       id: uuidv4().slice(0, 8).toUpperCase(),
       date: new Date().toLocaleString(),
       items: cart,
-      total,
+      itemsTotal,
+      deliveryCharge,
+      packingCharge,
+      total: finalTotal,
       payment,
       status: "Order Placed",
     };
@@ -55,7 +66,6 @@ export default function Checkout() {
     <div className="max-w-4xl mx-auto p-6">
       <h2 className="text-3xl font-bold text-blue-600 mb-6">Checkout</h2>
 
-      {/* Cart items */}
       {cart.length === 0 ? (
         <p className="text-gray-600">Your cart is empty.</p>
       ) : (
@@ -64,18 +74,22 @@ export default function Checkout() {
             <h3 className="text-xl font-semibold mb-3">Order Summary</h3>
             <ul className="space-y-2">
               {cart.map((item, idx) => (
-                <li
-                  key={idx}
-                  className="flex justify-between border-b pb-2 text-gray-700"
-                >
-                  <span>
-                    {item.name} × {item.quantity || 1}
-                  </span>
+                <li key={idx} className="flex justify-between border-b pb-2 text-gray-700">
+                  <span>{item.name} × {item.quantity || 1}</span>
                   <span>₹{item.price * (item.quantity || 1)}</span>
                 </li>
               ))}
             </ul>
-            <p className="text-right font-bold mt-3">Total: ₹{total}</p>
+            <p className="flex justify-between font-semibold mt-3">
+              <span>Items Total:</span> <span>₹{itemsTotal}</span>
+            </p>
+            <p className="flex justify-between font-semibold">
+              <span>Delivery Charge:</span> <span>₹{deliveryCharge}</span>
+            </p>
+            <p className="flex justify-between font-semibold">
+              <span>Packing Charge:</span> <span>₹{packingCharge}</span>
+            </p>
+            <p className="text-right font-bold mt-3">Total: ₹{finalTotal}</p>
           </div>
 
           {/* Payment method */}
@@ -83,55 +97,28 @@ export default function Checkout() {
             <h3 className="text-xl font-semibold mb-3">Payment Method</h3>
             <div className="space-y-2">
               <label className="flex items-center gap-2">
-                <input
-                  type="radio"
-                  name="payment"
-                  value="card"
-                  checked={payment === "card"}
-                  onChange={(e) => setPayment(e.target.value)}
-                />
+                <input type="radio" name="payment" value="card" checked={payment === "card"} onChange={(e) => setPayment(e.target.value)} />
                 Card Payment
               </label>
               <label className="flex items-center gap-2">
-                <input
-                  type="radio"
-                  name="payment"
-                  value="upi"
-                  checked={payment === "upi"}
-                  onChange={(e) => setPayment(e.target.value)}
-                />
+                <input type="radio" name="payment" value="upi" checked={payment === "upi"} onChange={(e) => setPayment(e.target.value)} />
                 UPI
               </label>
               <label className="flex items-center gap-2">
-                <input
-                  type="radio"
-                  name="payment"
-                  value="cod"
-                  checked={payment === "cod"}
-                  onChange={(e) => setPayment(e.target.value)}
-                />
+                <input type="radio" name="payment" value="cod" checked={payment === "cod"} onChange={(e) => setPayment(e.target.value)} />
                 Cash on Delivery
               </label>
             </div>
           </div>
 
-{/* pay now and cancel button */}
           <div className="flex gap-4 mt-4">
-            <button
-              onClick={handlePlaceOrder}
-              className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
-            >
+            <button onClick={handlePlaceOrder} className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
               Pay Now
             </button>
-
-            <button
-              onClick={() => navigate("/customer/cart")}
-              className="flex-1 bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-400"
-            >
+            <button onClick={() => navigate("/customer/cart")} className="flex-1 bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-400">
               Cancel
             </button>
           </div>
-
         </>
       )}
 
@@ -149,17 +136,12 @@ export default function Checkout() {
               ✖
             </button>
 
-            <h2 className="text-2xl font-bold text-green-600 mb-4">
-              ✅ Order Confirmed!
-            </h2>
+            <h2 className="text-2xl font-bold text-green-600 mb-4">✅ Order Confirmed!</h2>
             <p className="mb-2">Order #{placedOrder.id}</p>
             <p className="mb-2">Total: ₹{placedOrder.total}</p>
             <p className="mb-2">Payment: {placedOrder.payment.toUpperCase()}</p>
 
-            <button
-              onClick={() => navigate("/customer/orders")}
-              className="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
-            >
+            <button onClick={() => navigate("/customer/orders")} className="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
               Go to My Orders
             </button>
           </div>
@@ -168,4 +150,5 @@ export default function Checkout() {
     </div>
   );
 }
+
 

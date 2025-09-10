@@ -6,23 +6,34 @@ function AdminNotif() {
   const [notifications, setNotifications] = useState([]);
   const [unreadCount, setUnreadCount] = useState(0);
 
-  // Fetch notifications
+  // Load notifications from localStorage or API
   useEffect(() => {
-    axios
-      .get("/data/notifications.json")
-      .then((res) => {
-        setNotifications(res.data);
-        setUnreadCount(res.data.filter((n) => !n.read).length);
-      })
-      .catch((err) => console.error("Error fetching notifications:", err));
+    const stored = localStorage.getItem("admin_notifications");
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      setNotifications(parsed);
+      setUnreadCount(parsed.filter((n) => !n.read).length);
+    } else {
+      axios
+        .get("/data/notifications.json")
+        .then((res) => {
+          const dataWithRead = res.data.map((n) => ({ ...n, read: false }));
+          setNotifications(dataWithRead);
+          setUnreadCount(dataWithRead.length);
+          localStorage.setItem("admin_notifications", JSON.stringify(dataWithRead));
+        })
+        .catch((err) => console.error("Error fetching notifications:", err));
+    }
   }, []);
 
   // Handle marking notification as read
   const markAsRead = (id) => {
     setNotifications((prev) => {
-      return prev.map((n) =>
+      const updated = prev.map((n) =>
         n.id === id ? { ...n, read: true, justRead: true } : n
       );
+      localStorage.setItem("admin_notifications", JSON.stringify(updated));
+      return updated;
     });
 
     setUnreadCount((prev) => prev - 1);
@@ -37,6 +48,7 @@ function AdminNotif() {
           item.justRead = false;
           updated.push(item);
         }
+        localStorage.setItem("admin_notifications", JSON.stringify(updated));
         return updated;
       });
     }, 2000);
@@ -55,7 +67,6 @@ function AdminNotif() {
         </span>
       )}
 
-
       {/* Notifications List */}
       <div className="bg-white rounded-xl shadow-md p-4">
         <h2 className="text-xl font-bold mb-4 text-gray-800">All Notifications</h2>
@@ -65,10 +76,11 @@ function AdminNotif() {
             <div
               key={notif.id}
               onClick={() => !notif.read && markAsRead(notif.id)}
-              className={`p-4 rounded-lg border cursor-pointer transition duration-300 ${notif.read
+              className={`p-4 rounded-lg border cursor-pointer transition duration-300 ${
+                notif.read
                   ? "bg-gray-100 text-gray-600"
                   : "bg-yellow-50 border-yellow-300 text-gray-900"
-                } ${notif.justRead ? "animate-pulse" : ""}`}
+              } ${notif.justRead ? "animate-pulse" : ""}`}
             >
               <p className="font-medium">{notif.text}</p>
               {notif.message && (
@@ -87,3 +99,4 @@ function AdminNotif() {
 }
 
 export default AdminNotif;
+

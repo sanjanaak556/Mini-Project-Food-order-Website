@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import React from "react";
 import {
   FaUsers,
   FaStore,
@@ -9,16 +8,6 @@ import {
 } from "react-icons/fa";
 
 function AdminDashboard() {
-  const location = useLocation();
-  const [adminName, setAdminName] = useState("Admin");
-
-  // Simulating fetching admin username from login (localStorage/session)
-  useEffect(() => {
-    const storedName = localStorage.getItem("adminName");
-    if (storedName) {
-      setAdminName(storedName);
-    }
-  }, [location]);
 
   // Dummy stats (can be replaced with API later)
   const stats = [
@@ -65,7 +54,7 @@ function AdminDashboard() {
         {/* Welcome section */}
         <div className="mb-8 text-center">
           <h1 className="text-3xl font-bold text-gray-900">
-            Welcome back, <span className="text-blue-600">{adminName}</span> 
+            Welcome back, <span className="text-blue-600">Admin</span>
           </h1>
           <p className="mt-3 text-white font-semibold text-xl">
             Shape the future of your marketplace. Every decision here fuels growth, innovation, and customer satisfaction.

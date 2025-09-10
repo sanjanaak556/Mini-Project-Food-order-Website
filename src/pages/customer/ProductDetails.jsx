@@ -56,7 +56,7 @@ function ProductDetails() {
     <div className="p-6 max-w-4xl mx-auto">
       {/* Back Button */}
       <button
-        onClick={() => navigate(-1)}
+        onClick={() => navigate("/customer")}
         className="flex items-center gap-2 text-gray-700 hover:text-red-500 mb-6"
       >
         <FaArrowLeft /> Back

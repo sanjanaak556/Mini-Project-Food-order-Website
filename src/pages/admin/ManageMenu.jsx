@@ -1,4 +1,3 @@
-// pages/admin/ManageMenu.jsx
 import React, { useEffect, useState } from "react";
 import { FaTrashAlt, FaUtensils, FaStar, FaCrown } from "react-icons/fa";
 
@@ -8,12 +7,25 @@ function ManageMenu() {
     const [selectedMenu, setSelectedMenu] = useState(null);
     const [reason, setReason] = useState("");
 
-    // Load menu data
+    // Load menu data from localStorage or API
     useEffect(() => {
-        fetch("https://sanjanaak556.github.io/Menu-API/menu.json")
-            .then((res) => res.json())
-            .then((data) => setMenus(data));
+        const stored = localStorage.getItem("admin_menus");
+        if (stored) {
+            setMenus(JSON.parse(stored));
+        } else {
+            fetch("https://sanjanaak556.github.io/Menu-API/menu.json")
+                .then((res) => res.json())
+                .then((data) => {
+                    setMenus(data);
+                    localStorage.setItem("admin_menus", JSON.stringify(data));
+                });
+        }
     }, []);
+
+    // Save menus to localStorage whenever they change
+    useEffect(() => {
+        localStorage.setItem("admin_menus", JSON.stringify(menus));
+    }, [menus]);
 
     const handleRemoveClick = (menu) => {
         setSelectedMenu(menu);
@@ -63,7 +75,6 @@ function ManageMenu() {
                             <p>₹{menu.price}</p>
                             <p><FaStar className="text-yellow-500" /> {menu.rating}</p>
                         </div>
-
 
                         {/* Veg and Best Seller labels */}
                         <div className="flex space-x-3 mb-2">
@@ -138,3 +149,4 @@ function ManageMenu() {
 }
 
 export default ManageMenu;
+

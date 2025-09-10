@@ -3,6 +3,11 @@ import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import AboutSection from '../components/AboutSection'
 import FoodCarousel from '../components/FoodCarousel'
+import ContactSection from '../components/ContactSection'
+import RestaurantCarousel from '../components/RestaurantCarousel'
+import PartnerSection from '../components/PartnerSection'
+import TestimonialsSection from '../components/TestimonialsSection'
+import HelpChat from '../components/HelpChat'
 
 
 function LandingPage() {
@@ -44,12 +49,21 @@ function LandingPage() {
             <FoodCarousel />
 
             {/* Contact Section */}
-            <section className="px-10 py-16 text-center bg-white">
-                <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
-                <p>Email: hungerhub@gmail.com</p>
-                <p>Phone: +91 8500007891</p>
-            </section>
+            <ContactSection />
 
+            {/* Restaurant carousel */}
+            <RestaurantCarousel />
+
+            {/* New Restaurant Registration form */}
+            <PartnerSection />
+
+            {/* Testimonial section */}
+            <TestimonialsSection />
+
+            {/* Help Chat */}
+            <HelpChat />
+
+            {/* footer */}
             <Footer variant="home" />
         </div>
     )
